@@ -3,20 +3,18 @@
 # NOTE: this example requires PyAudio because it uses the Microphone class
 
 import speech_recognition as sr
+import json
 import string
+import Led_Control as Led
 from pprint import pprint
 import re
 
-import Dex_Controller as Dex
-import Led_Control as Led
-import APIKeys
-
 with open('acc.json','r') as data_file:
 	d = data_file.read()
-	
 
 
-#Not implimented the background speech yet but will
+
+
 def callback(recognizer, audio):
 	# received audio data, now we'll recognize it using Google Speech Recognition
 	try:
@@ -32,7 +30,7 @@ def callback(recognizer, audio):
 
 
 # recognize speech using Microsoft Bing Voice Recognition
-
+BING_KEY = "3115dd2606fe4be7a043f68d46a13890" # Microsoft Bing Voice Recognition API keys 32-character lowercase hexadecimal strings
 
 
 if __name__ == '__main__':     # Program start from here
@@ -44,14 +42,12 @@ if __name__ == '__main__':     # Program start from here
 			try:
 				Led.spinning()
 				r = sr.Recognizer()
-				
 
 				with sr.Microphone(device_index =0,
 					sample_rate = 44100,
 					chunk_size = 512) as source:
-					#r.adjust_for_ambient_noise(sr);
 					print("Say something!")
-					audio = r.listen(source,5,10)
+					audio = r.listen(source)
 			
 
 
@@ -73,7 +69,6 @@ if __name__ == '__main__':     # Program start from here
 
 			for item in wordList:
 				Led.LED_Dir(item)
-				Dex.Dir(item)
 		
 			r = ''
 

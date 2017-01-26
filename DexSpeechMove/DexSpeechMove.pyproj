@@ -12,6 +12,7 @@
     <OutputPath>.</OutputPath>
     <Name>DexSpeechMove</Name>
     <RootNamespace>DexSpeechMove</RootNamespace>
+    <PublishUrl>\\Dex\pi\DexSpeechProj\</PublishUrl>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -22,7 +23,31 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="APIKeys.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="DexSpeechMove.py" />
+    <Compile Include="Dex_Controller.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Led_Control.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SpeechTest.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Speech\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Test_Led.py">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Speech\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="acc.json" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
